@@ -15,7 +15,6 @@ Website resmi untuk komunitas IMPHNEN (Ingin Menjadi Programmer Handal Namun Eng
 - Next.js
 - TypeScript
 - Tailwind CSS
-- Supabase (untuk database dan autentikasi)
 
 ## Cara Menjalankan
 
