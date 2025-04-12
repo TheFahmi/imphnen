@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { countVisitor, getVisitorStats, updateVisitorStatus } from '@/lib/visitorUtils';
+import { countVisitor, getVisitorStats, updateVisitorStatus } from '@/lib/visitorUtils.server';
 
 // Ensure countVisitor is an async function if it returns a promise
 
 // API endpoint untuk mendapatkan jumlah pengunjung
 export async function GET() {
   try {
-    const stats = await getVisitorStats();
+    const stats = getVisitorStats();
     return NextResponse.json(stats);
   } catch (error) {
     console.error('Error getting visitor stats:', error);
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
 
     // Jika action adalah 'count', hitung pengunjung baru
     if (action === 'count') {
-      const count = await countVisitor(visitorId);
+      const count = countVisitor(visitorId);
       return NextResponse.json({
         count,
         success: true
@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === 'update') {
-      const success = await updateVisitorStatus(visitorId);
+      const success = updateVisitorStatus(visitorId);
       return NextResponse.json({
         success
       });

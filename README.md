@@ -37,6 +37,8 @@ Website ini menggunakan penyimpanan berbasis file JSON untuk menyimpan data peng
 
 ## Deployment
 
+### Manual Deployment
+
 1. Build aplikasi:
    ```bash
    npm run build
@@ -46,6 +48,21 @@ Website ini menggunakan penyimpanan berbasis file JSON untuk menyimpan data peng
    ```bash
    npm run serve
    ```
+
+### Auto-Deploy dengan Vercel
+
+Proyek ini dikonfigurasi untuk auto-deploy ke Vercel. Setiap kali ada push ke branch utama di GitHub, Vercel akan otomatis men-deploy versi terbaru.
+
+1. Fork atau clone repository ini ke GitHub Anda
+2. Buat akun di [Vercel](https://vercel.com) jika belum memilikinya
+3. Di dashboard Vercel, klik "New Project"
+4. Import repository GitHub Anda
+5. Vercel akan otomatis mendeteksi konfigurasi Next.js
+6. Klik "Deploy"
+
+Setelah deployment awal, setiap push ke branch utama akan memicu deployment otomatis.
+
+Untuk instruksi lebih detail, lihat [DEPLOYMENT.md](./DEPLOYMENT.md).
 
 ## Struktur Proyek
 
