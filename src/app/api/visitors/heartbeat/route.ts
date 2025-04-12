@@ -12,8 +12,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-
-    // Use the reusable function to update visitor status
+    
     const success = updateVisitorStatus(visitorId);
 
     return NextResponse.json({

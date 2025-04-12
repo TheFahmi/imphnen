@@ -4,7 +4,7 @@ import { getVisitorStats } from '@/lib/visitorUtils';
 // GET handler - returns visitor statistics
 export async function GET() {
   try {
-    // Use the reusable function to get visitor stats
+    // Get visitor statistics
     const stats = getVisitorStats();
 
     return NextResponse.json(stats);

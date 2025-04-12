@@ -209,11 +209,11 @@ export const dailyQuotes: Quote[] = [
 // Function to get quote of the day based on date
 export function getQuoteOfTheDay(): Quote {
   const today = new Date();
-  const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-  
+  const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24));
+
   // Use the day of year to select a quote (cycling through the array)
   const quoteIndex = dayOfYear % dailyQuotes.length;
-  
+
   return dailyQuotes[quoteIndex];
 }
 
