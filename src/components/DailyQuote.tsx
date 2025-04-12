@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Quote, getQuoteOfTheDay, getRandomQuote } from '@/data/quotes';
+import { Quote, getQuoteOfTheDay, getRandomQuote } from '../data/quotes';
 
 interface DailyQuoteProps {
   className?: string;
@@ -34,7 +34,7 @@ const DailyQuote: React.FC<DailyQuoteProps> = ({
         <h3 className="font-bold mb-2 text-sm sm:text-base">{titleText}</h3>
       )}
       <div className="bg-gray-100 p-3 border border-gray-300 rounded">
-        <blockquote className="italic text-sm mb-2">"{quote.text}"</blockquote>
+        <blockquote className="italic text-sm mb-2">&quot;{quote.text}&quot;</blockquote>
         <div className="text-right text-xs text-gray-600">— {quote.author}</div>
       </div>
     </div>
