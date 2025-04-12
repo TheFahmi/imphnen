@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Quote, getQuoteOfTheDay, getRandomQuote } from '../data/quotes';
+import { Quote, getQuoteOfTheDay, getRandomQuote } from '@/lib/quotes';
 
 interface DailyQuoteProps {
   className?: string;
