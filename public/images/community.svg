@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    .floating {
+      animation: float 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .pulsing {
+      animation: pulse 2s infinite;
+    }
+  </style>
+  
+  <!-- Background -->
+  <circle cx="25" cy="25" r="23" fill="#FFFFFF" stroke="#000080" stroke-width="2" />
+  
+  <!-- People icons -->
+  <!-- Center person -->
+  <g class="floating" transform="translate(25, 25)">
+    <circle cx="0" cy="-8" r="5" fill="#FF6347" stroke="#000000" stroke-width="0.5" /> <!-- Head -->
+    <path d="M-4,0 L4,0 L2,10 L-2,10 Z" fill="#FF6347" stroke="#000000" stroke-width="0.5" /> <!-- Body -->
+    <circle cx="-2" cy="-9" r="1" fill="#000000" /> <!-- Left eye -->
+    <circle cx="2" cy="-9" r="1" fill="#000000" /> <!-- Right eye -->
+    <path d="M-2,-6 Q0,-4 2,-6" stroke="#000000" stroke-width="0.5" fill="none" /> <!-- Smile -->
+  </g>
+  
+  <!-- Left person -->
+  <g class="floating" style="animation-delay: 0.5s" transform="translate(12, 25)">
+    <circle cx="0" cy="-8" r="5" fill="#6495ED" stroke="#000000" stroke-width="0.5" /> <!-- Head -->
+    <path d="M-4,0 L4,0 L2,10 L-2,10 Z" fill="#6495ED" stroke="#000000" stroke-width="0.5" /> <!-- Body -->
+    <circle cx="-2" cy="-9" r="1" fill="#000000" /> <!-- Left eye -->
+    <circle cx="2" cy="-9" r="1" fill="#000000" /> <!-- Right eye -->
+    <path d="M-2,-6 Q0,-4 2,-6" stroke="#000000" stroke-width="0.5" fill="none" /> <!-- Smile -->
+  </g>
+  
+  <!-- Right person -->
+  <g class="floating" style="animation-delay: 1s" transform="translate(38, 25)">
+    <circle cx="0" cy="-8" r="5" fill="#98FB98" stroke="#000000" stroke-width="0.5" /> <!-- Head -->
+    <path d="M-4,0 L4,0 L2,10 L-2,10 Z" fill="#98FB98" stroke="#000000" stroke-width="0.5" /> <!-- Body -->
+    <circle cx="-2" cy="-9" r="1" fill="#000000" /> <!-- Left eye -->
+    <circle cx="2" cy="-9" r="1" fill="#000000" /> <!-- Right eye -->
+    <path d="M-2,-6 Q0,-4 2,-6" stroke="#000000" stroke-width="0.5" fill="none" /> <!-- Smile -->
+  </g>
+  
+  <!-- Connection lines -->
+  <line x1="17" y1="25" x2="23" y2="25" stroke="#000080" stroke-width="1" stroke-dasharray="2,1" />
+  <line x1="27" y1="25" x2="33" y2="25" stroke="#000080" stroke-width="1" stroke-dasharray="2,1" />
+  
+  <!-- Heart symbol -->
+  <g class="pulsing" transform="translate(25, 10) scale(0.5)">
+    <path d="M0,6 L-10,-4 A8,8 0 0,1 -10,-12 A8,8 0 0,1 0,-8 A8,8 0 0,1 10,-12 A8,8 0 0,1 10,-4 Z" fill="#FF0000" />
+  </g>
+</svg>

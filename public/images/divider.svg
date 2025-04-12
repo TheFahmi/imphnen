@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="20" viewBox="0 0 600 20">
+  <style>
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    .sparkling {
+      animation: sparkle 2s infinite;
+    }
+    @keyframes move {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(600px); }
+    }
+    .moving {
+      animation: move 30s linear infinite;
+    }
+  </style>
+  
+  <!-- Background -->
+  <rect width="600" height="20" fill="#000080" />
+  
+  <!-- Main divider line -->
+  <line x1="0" y1="10" x2="600" y2="10" stroke="#FFFF00" stroke-width="2" stroke-dasharray="10,5" />
+  
+  <!-- Stars -->
+  <g class="sparkling">
+    <polygon points="20,5 22,10 28,10 23,13 25,18 20,15 15,18 17,13 12,10 18,10" fill="#FFFFFF" />
+    <polygon points="60,5 62,10 68,10 63,13 65,18 60,15 55,18 57,13 52,10 58,10" fill="#FFFFFF" />
+    <polygon points="100,5 102,10 108,10 103,13 105,18 100,15 95,18 97,13 92,10 98,10" fill="#FFFFFF" />
+    <polygon points="140,5 142,10 148,10 143,13 145,18 140,15 135,18 137,13 132,10 138,10" fill="#FFFFFF" />
+    <polygon points="180,5 182,10 188,10 183,13 185,18 180,15 175,18 177,13 172,10 178,10" fill="#FFFFFF" />
+    <polygon points="220,5 222,10 228,10 223,13 225,18 220,15 215,18 217,13 212,10 218,10" fill="#FFFFFF" />
+    <polygon points="260,5 262,10 268,10 263,13 265,18 260,15 255,18 257,13 252,10 258,10" fill="#FFFFFF" />
+    <polygon points="300,5 302,10 308,10 303,13 305,18 300,15 295,18 297,13 292,10 298,10" fill="#FFFFFF" />
+    <polygon points="340,5 342,10 348,10 343,13 345,18 340,15 335,18 337,13 332,10 338,10" fill="#FFFFFF" />
+    <polygon points="380,5 382,10 388,10 383,13 385,18 380,15 375,18 377,13 372,10 378,10" fill="#FFFFFF" />
+    <polygon points="420,5 422,10 428,10 423,13 425,18 420,15 415,18 417,13 412,10 418,10" fill="#FFFFFF" />
+    <polygon points="460,5 462,10 468,10 463,13 465,18 460,15 455,18 457,13 452,10 458,10" fill="#FFFFFF" />
+    <polygon points="500,5 502,10 508,10 503,13 505,18 500,15 495,18 497,13 492,10 498,10" fill="#FFFFFF" />
+    <polygon points="540,5 542,10 548,10 543,13 545,18 540,15 535,18 537,13 532,10 538,10" fill="#FFFFFF" />
+    <polygon points="580,5 582,10 588,10 583,13 585,18 580,15 575,18 577,13 572,10 578,10" fill="#FFFFFF" />
+  </g>
+  
+  <!-- Moving element -->
+  <g class="moving">
+    <circle cx="-10" cy="10" r="3" fill="#FF00FF" />
+  </g>
+</svg>

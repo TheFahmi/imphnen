@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="30" viewBox="0 0 90 30">
+  <style>
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .pulsing {
+      animation: pulse 2s infinite;
+    }
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 2px #FFFFFF); }
+      50% { filter: drop-shadow(0 0 5px #FFFFFF); }
+    }
+    .glowing {
+      animation: glow 2s infinite;
+    }
+  </style>
+  
+  <!-- Background -->
+  <rect width="90" height="30" rx="3" fill="#000000" />
+  
+  <!-- Netscape "N" logo -->
+  <g class="pulsing" transform="translate(15, 15) scale(0.8)">
+    <circle cx="0" cy="0" r="12" fill="#0066CC" class="glowing" />
+    <path d="M-6,-6 L-6,6 L0,0 L6,6 L6,-6" fill="none" stroke="#FFFFFF" stroke-width="2.5" />
+  </g>
+  
+  <!-- Text -->
+  <text x="45" y="12" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF" text-anchor="middle">NETSCAPE</text>
+  <text x="45" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFCC00" text-anchor="middle">NOW!</text>
+  
+  <!-- Border -->
+  <rect width="90" height="30" rx="3" fill="none" stroke="#FFFFFF" stroke-width="1" />
+</svg>

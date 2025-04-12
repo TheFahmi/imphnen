@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <!-- Star with gradient -->
+  <defs>
+    <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD166;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF9E7D;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Star shape -->
+  <path d="M20,5 L23.9,16.1 L35.8,16.1 L26,22.8 L29.8,33.9 L20,27.2 L10.2,33.9 L14,22.8 L4.2,16.1 L16.1,16.1 Z" 
+        fill="url(#starGradient)" 
+        stroke="#4A00E0" 
+        stroke-width="1"
+        filter="url(#glow)" />
+  
+  <!-- Sparkle effects -->
+  <path d="M20,0 L20,5 M20,35 L20,40 M0,20 L5,20 M35,20 L40,20" 
+        stroke="#FFFFFF" 
+        stroke-width="1" />
+  
+  <path d="M8,8 L11,11 M29,8 L26,11 M8,32 L11,29 M32,32 L29,29" 
+        stroke="#FFFFFF" 
+        stroke-width="0.5" />
+</svg>

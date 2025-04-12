@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="20" viewBox="0 0 600 20">
+  <!-- Retro gradient background -->
+  <defs>
+    <linearGradient id="dividerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4A00E0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8E2DE2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A00E0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main line with gradient -->
+  <path d="M0,10 L600,10" stroke="url(#dividerGradient)" stroke-width="2" stroke-dasharray="15,5" />
+  
+  <!-- Decorative elements -->
+  <circle cx="300" cy="10" r="6" fill="#FF6B6B" />
+  <circle cx="100" cy="10" r="4" fill="#4ECDC4" />
+  <circle cx="500" cy="10" r="4" fill="#FFD166" />
+  
+  <!-- Small stars -->
+  <path d="M50,10 L53,10 M51.5,8.5 L51.5,11.5" stroke="#FFD166" stroke-width="1.5" />
+  <path d="M150,10 L153,10 M151.5,8.5 L151.5,11.5" stroke="#FF6B6B" stroke-width="1.5" />
+  <path d="M250,10 L253,10 M251.5,8.5 L251.5,11.5" stroke="#4ECDC4" stroke-width="1.5" />
+  <path d="M350,10 L353,10 M351.5,8.5 L351.5,11.5" stroke="#FFD166" stroke-width="1.5" />
+  <path d="M450,10 L453,10 M451.5,8.5 L451.5,11.5" stroke="#FF6B6B" stroke-width="1.5" />
+  <path d="M550,10 L553,10 M551.5,8.5 L551.5,11.5" stroke="#4ECDC4" stroke-width="1.5" />
+</svg>

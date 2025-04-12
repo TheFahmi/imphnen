@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150">
+  <!-- Background -->
+  <rect width="150" height="150" rx="10" ry="10" fill="#F8F9FA" stroke="#4A00E0" stroke-width="3" />
+  
+  <!-- Computer screen -->
+  <rect x="30" y="30" width="90" height="60" rx="5" ry="5" fill="#4A00E0" />
+  <rect x="35" y="35" width="80" height="50" rx="2" ry="2" fill="#000000" />
+  
+  <!-- Code on screen -->
+  <text x="40" y="45" font-family="monospace" font-size="5" fill="#4ECDC4">function lazy() {</text>
+  <text x="40" y="52" font-family="monospace" font-size="5" fill="#FF6B6B">  // TODO: code</text>
+  <text x="40" y="59" font-family="monospace" font-size="5" fill="#FF6B6B">  // later...</text>
+  <text x="40" y="66" font-family="monospace" font-size="5" fill="#FFD166">  return false;</text>
+  <text x="40" y="73" font-family="monospace" font-size="5" fill="#4ECDC4">}</text>
+  <text x="40" y="80" font-family="monospace" font-size="5" fill="#FFFFFF">// Never runs</text>
+  
+  <!-- Keyboard -->
+  <rect x="40" y="95" width="70" height="15" rx="2" ry="2" fill="#333333" stroke="#000000" />
+  <rect x="45" y="97" width="5" height="5" rx="1" ry="1" fill="#CCCCCC" />
+  <rect x="55" y="97" width="5" height="5" rx="1" ry="1" fill="#CCCCCC" />
+  <rect x="65" y="97" width="5" height="5" rx="1" ry="1" fill="#CCCCCC" />
+  <rect x="75" y="97" width="5" height="5" rx="1" ry="1" fill="#CCCCCC" />
+  <rect x="85" y="97" width="5" height="5" rx="1" ry="1" fill="#CCCCCC" />
+  <rect x="95" y="97" width="5" height="5" rx="1" ry="1" fill="#CCCCCC" />
+  <rect x="45" y="103" width="40" height="5" rx="1" ry="1" fill="#CCCCCC" />
+  
+  <!-- Coffee cup -->
+  <path d="M110,75 L120,75 L118,95 L112,95 Z" fill="#8E2DE2" />
+  <path d="M112,75 L118,75 L117,85 L113,85 Z" fill="#FFFFFF" />
+  <ellipse cx="115" cy="75" rx="5" ry="2" fill="#8E2DE2" />
+  
+  <!-- ZZZ (sleeping) -->
+  <text x="125" y="40" font-family="Arial" font-size="10" font-weight="bold" fill="#4A00E0">Z</text>
+  <text x="120" y="50" font-family="Arial" font-size="12" font-weight="bold" fill="#8E2DE2">Z</text>
+  <text x="115" y="60" font-family="Arial" font-size="14" font-weight="bold" fill="#FF6B6B">Z</text>
+  
+  <!-- Caption -->
+  <text x="75" y="130" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle" fill="#4A00E0">PROGRAMMER YANG</text>
+  <text x="75" y="142" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle" fill="#FF6B6B">MALAS NGODING</text>
+</svg>

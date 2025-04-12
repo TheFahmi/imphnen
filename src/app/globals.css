@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import tooltip styles */
+@import './tooltip.css';
+
+:root {
+  --background: #000080; /* Navy blue background */
+  --foreground: #000000;
+}
+
+/* Retro 90s/2000s Website Styles */
+body {
+  background-color: #000080;
+  color: #000000;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  background-image: url('/images/stars_bg.svg');
+  cursor: pointer;
+}
+
+@layer components {
+  /* Blinking text animation */
+  .blink {
+    animation: blinker 1s linear infinite;
+  }
+
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  /* Rainbow text effect */
+  .rainbow-text {
+    background-image: linear-gradient(to right,
+      #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #8B00FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow 5s linear infinite;
+  }
+
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+
+  /* Marquee animation */
+  .marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Border styles */
+  .border-inset {
+    border-style: inset;
+  }
+
+  .border-outset {
+    border-style: outset;
+  }
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #c0c0c0;
+  border: 1px inset #808080;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #808080;
+  border: 1px outset #c0c0c0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #606060;
+}

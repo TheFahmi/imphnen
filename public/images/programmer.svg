@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150">
+  <style>
+    @keyframes blink-cursor {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .cursor {
+      animation: blink-cursor 1s infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .spinning {
+      transform-origin: center;
+      animation: spin 10s linear infinite;
+    }
+  </style>
+  
+  <!-- Background -->
+  <rect width="150" height="150" fill="#000080" />
+  
+  <!-- Computer -->
+  <g class="floating">
+    <rect x="25" y="60" width="100" height="70" rx="5" fill="#c0c0c0" stroke="#808080" stroke-width="2" />
+    <rect x="35" y="70" width="80" height="50" fill="#000000" stroke="#404040" stroke-width="1" />
+    
+    <!-- Code on screen -->
+    <text x="40" y="85" font-family="Courier New, monospace" font-size="6" fill="#00FF00">function main() {</text>
+    <text x="40" y="95" font-family="Courier New, monospace" font-size="6" fill="#00FF00">  console.log(</text>
+    <text x="40" y="105" font-family="Courier New, monospace" font-size="6" fill="#00FF00">    "Hello World"</text>
+    <text x="40" y="115" font-family="Courier New, monospace" font-size="6" fill="#00FF00">  );</text>
+    <text x="40" y="125" font-family="Courier New, monospace" font-size="6" fill="#00FF00">}</text>
+    
+    <!-- Blinking cursor -->
+    <rect x="55" y="117" width="4" height="8" fill="#00FF00" class="cursor" />
+  </g>
+  
+  <!-- Person -->
+  <g>
+    <!-- Head -->
+    <circle cx="75" cy="40" r="20" fill="#FFD700" stroke="#000000" stroke-width="1" />
+    
+    <!-- Face -->
+    <circle cx="65" cy="35" r="3" fill="#000000" /> <!-- Left eye -->
+    <circle cx="85" cy="35" r="3" fill="#000000" /> <!-- Right eye -->
+    
+    <!-- Mouth - confused/tired expression -->
+    <path d="M65,50 Q75,45 85,50" stroke="#000000" stroke-width="2" fill="none" />
+    
+    <!-- Thought bubble -->
+    <g class="floating">
+      <circle cx="105" cy="20" r="10" fill="#FFFFFF" stroke="#000000" stroke-width="1" />
+      <circle cx="95" cy="25" r="5" fill="#FFFFFF" stroke="#000000" stroke-width="1" />
+      <circle cx="90" cy="30" r="3" fill="#FFFFFF" stroke="#000000" stroke-width="1" />
+      
+      <!-- ZZZ for sleeping/tired -->
+      <text x="100" y="23" font-family="Comic Sans MS, cursive" font-size="10" font-weight="bold" fill="#FF0000">ZZZ</text>
+    </g>
+    
+    <!-- Facebook logo in thought bubble -->
+    <g class="spinning" transform="translate(105, 20) scale(0.15)">
+      <circle cx="0" cy="0" r="30" fill="#3b5998" />
+      <text x="-15" y="10" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#FFFFFF">f</text>
+    </g>
+  </g>
+  
+  <!-- Text at bottom -->
+  <rect x="10" y="135" width="130" height="15" rx="5" fill="#FF0000" />
+  <text x="75" y="146" font-family="Arial Black, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF" text-anchor="middle">MALAS NGODING!</text>
+</svg>
