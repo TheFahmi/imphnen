@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { countVisitor, getVisitorStats, updateVisitorStatus } from '@/lib/supabase';
+import { countVisitor, getVisitorStats, updateVisitorStatus } from '@/lib/visitorUtils';
+
+// Ensure countVisitor is an async function if it returns a promise
 
 // API endpoint untuk mendapatkan jumlah pengunjung
 export async function GET() {
@@ -36,7 +38,6 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Jika action adalah 'update', perbarui status online
     if (action === 'update') {
       const success = await updateVisitorStatus(visitorId);
       return NextResponse.json({

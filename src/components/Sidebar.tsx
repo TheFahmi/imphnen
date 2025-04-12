@@ -51,13 +51,13 @@ const Sidebar: React.FC<SidebarProps> = ({ position }) => {
 
         <div className="text-center">
           <a href="#" className="block mb-2">
-            <Image src="/images/join_group.svg" alt="Join Group" width={88} height={31} className="mx-auto" />
+            <Image src="/images/join_group.svg" alt="Join Group" width={120} height={44} className="mx-auto" />
           </a>
           <a href="#" className="block mb-2">
-            <Image src="/images/meme_gallery.svg" alt="Meme Gallery" width={88} height={31} className="mx-auto" />
+            <Image src="/images/meme_gallery.svg" alt="Meme Gallery" width={120} height={44} className="mx-auto" />
           </a>
           <a href="#" className="block mb-2">
-            <Image src="/images/discord.svg" alt="Join Discord" width={88} height={31} className="mx-auto" />
+            <Image src="/images/discord.svg" alt="Join Discord" width={120} height={44} className="mx-auto" />
           </a>
         </div>
       </div>

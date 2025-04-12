@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31">
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="31" viewBox="0 0 120 31">
   <style>
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -34,19 +34,19 @@
   </style>
 
   <!-- Button background with glow -->
-  <rect width="88" height="31" rx="5" fill="#5865F2" stroke="#FFFFFF" stroke-width="2" class="glowing" />
+  <rect width="120" height="31" rx="5" fill="#5865F2" stroke="#FFFFFF" stroke-width="2" class="glowing" />
 
   <!-- 3D effect -->
-  <rect x="2" y="2" width="84" height="27" rx="4" fill="#7289DA" />
+  <rect x="2" y="2" width="116" height="27" rx="4" fill="#7289DA" />
 
   <!-- Inner shadow -->
-  <rect x="4" y="4" width="80" height="23" rx="3" fill="#5865F2" />
+  <rect x="4" y="4" width="112" height="23" rx="3" fill="#5865F2" />
 
   <!-- Text -->
-  <text x="44" y="20" font-family="Arial Black, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle" class="shaking">JOIN DISCORD</text>
+  <text x="60" y="20" font-family="Arial Black, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle" class="shaking">JOIN DISCORD</text>
 
   <!-- Discord logo (simplified) -->
-  <g class="floating" transform="translate(15, 15) scale(0.4)">
+  <g class="floating" transform="translate(20, 15) scale(0.4)">
     <!-- Main shape -->
     <path d="M-15,0 C-15,-8 -5,-15 5,-15 C15,-15 25,-8 25,0 C25,8 15,15 5,15 C-5,15 -15,8 -15,0 Z" fill="#FFFFFF" class="glowing" />
 
@@ -59,18 +59,18 @@
   </g>
 
   <!-- Chat bubbles with glow -->
-  <g transform="translate(70, 10)">
+  <g transform="translate(100, 10)">
     <circle cx="0" cy="0" r="3" fill="#FFFFFF" class="pulsing glowing" />
   </g>
-  <g transform="translate(75, 15)">
+  <g transform="translate(105, 15)">
     <circle cx="0" cy="0" r="2" fill="#FFFFFF" class="pulsing glowing" />
   </g>
-  <g transform="translate(78, 20)">
+  <g transform="translate(108, 20)">
     <circle cx="0" cy="0" r="1" fill="#FFFFFF" class="pulsing glowing" />
   </g>
 
   <!-- Attention-grabbing elements -->
-  <g class="shaking" transform="translate(80, 8)">
+  <g class="shaking" transform="translate(110, 8)">
     <text x="0" y="0" font-family="Arial Black, sans-serif" font-size="8" font-weight="bold" fill="#FFFF00" text-anchor="middle">!</text>
   </g>
 </svg>
