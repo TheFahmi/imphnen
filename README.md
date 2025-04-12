@@ -15,7 +15,7 @@ Website resmi untuk komunitas IMPHNEN (Ingin Menjadi Programmer Handal Namun Eng
 - Next.js
 - TypeScript
 - Tailwind CSS
-- Supabase (untuk database dan autentikasi)
+- File-based JSON storage
 
 ## Cara Menjalankan
 
@@ -24,47 +24,16 @@ Website resmi untuk komunitas IMPHNEN (Ingin Menjadi Programmer Handal Namun Eng
    ```bash
    npm install
    ```
-3. Setup Supabase (lihat bagian di bawah)
-4. Copy `.env.local.example` ke `.env.local` dan isi dengan kredensial Supabase Anda
-5. Jalankan server development:
+3. Buat direktori `data` di root project (jika belum ada)
+4. Jalankan server development:
    ```bash
    npm run dev
    ```
-6. Buka [http://localhost:3000](http://localhost:3000) di browser Anda
+5. Buka [http://localhost:3000](http://localhost:3000) di browser Anda
 
-## Setup Supabase
+## Penyimpanan Data
 
-1. Buat akun di [Supabase](https://supabase.com/)
-2. Buat project baru
-3. Dapatkan URL dan anon key dari Settings > API
-4. Buat tabel `visitors` dengan struktur berikut:
-
-```sql
-CREATE TABLE visitors (
-  id SERIAL PRIMARY KEY,
-  visitor_id TEXT UNIQUE NOT NULL,
-  first_visit TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  last_visit TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  visit_count INTEGER DEFAULT 1
-);
-
--- Indeks untuk mempercepat query
-CREATE INDEX idx_visitors_visitor_id ON visitors(visitor_id);
-CREATE INDEX idx_visitors_last_visit ON visitors(last_visit);
-```
-
-5. Tambahkan Row Level Security (RLS) untuk keamanan:
-
-```sql
--- Aktifkan RLS
-ALTER TABLE visitors ENABLE ROW LEVEL SECURITY;
-
--- Buat kebijakan untuk membaca data
-CREATE POLICY "Allow anonymous read access" ON visitors FOR SELECT USING (true);
-
--- Buat kebijakan untuk menulis data (hanya untuk service role)
-CREATE POLICY "Allow service role to insert/update" ON visitors FOR ALL USING (auth.role() = 'service_role');
-```
+Website ini menggunakan penyimpanan berbasis file JSON untuk menyimpan data pengunjung. Data disimpan di direktori `data` di root project.
 
 ## Deployment
 
@@ -90,7 +59,7 @@ CREATE POLICY "Allow service role to insert/update" ON visitors FOR ALL USING (a
 Sistem penghitung pengunjung menggunakan kombinasi dari:
 
 1. **Client-side Storage**: Menyimpan ID pengunjung unik di localStorage
-2. **Supabase Database**: Menyimpan data pengunjung secara persisten
+2. **File-based JSON Storage**: Menyimpan data pengunjung secara persisten dalam file JSON
 3. **API Endpoints**: Menangani penghitungan dan pembaruan pengunjung
 4. **Heartbeat**: Memperbarui status online pengunjung secara berkala
 
