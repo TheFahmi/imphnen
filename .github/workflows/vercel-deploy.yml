@@ -1,4 +1,4 @@
-name: Deploy to Vercel
+name: Build and Test
 
 on:
   push:
@@ -11,32 +11,26 @@ on:
       - master
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
           cache: 'npm'
-          
+
       - name: Install dependencies
         run: npm ci
-        
+
       - name: Run linting
         run: npm run lint
-        
+
       - name: Build
         run: npm run build
-        
-      - name: Deploy to Vercel
-        if: success() && github.event_name == 'push'
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: ./
-          vercel-args: '--prod'
+
+      # Note: Vercel deployment step removed
+      # To deploy to Vercel, you can use Vercel's GitHub integration
+      # or manually deploy using the Vercel CLI
