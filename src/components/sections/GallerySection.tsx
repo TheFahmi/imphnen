@@ -114,7 +114,7 @@ const GallerySection: React.FC = () => {
 
       <div className="mt-6 p-4 bg-yellow-100 border border-dashed border-red-600 text-center">
         <p className="font-bold">Fun Fact:</p>
-        <p>"Programmer malas sebenarnya adalah programmer efisien yang menolak mengerjakan hal yang tidak perlu."</p>
+        <p>&ldquo;Programmer malas sebenarnya adalah programmer efisien yang menolak mengerjakan hal yang tidak perlu.&rdquo;</p>
         <p className="text-sm italic mt-2">(Ini hanya pembenaran diri, jangan terlalu dianggap serius)</p>
       </div>
     </section>

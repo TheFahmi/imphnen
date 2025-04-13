@@ -140,7 +140,7 @@ const TipsSection: React.FC = () => {
 
       <div className="mt-6 p-4 bg-yellow-100 border border-dashed border-red-600 text-center">
         <p className="font-bold">Kata Mutiara IMPHNEN:</p>
-        <p>"Programmer malas akan menemukan cara termudah untuk menyelesaikan tugas sulit. Programmer rajin akan menyelesaikan tugas sulit dengan cara sulit."</p>
+        <p>&ldquo;Programmer malas akan menemukan cara termudah untuk menyelesaikan tugas sulit. Programmer rajin akan menyelesaikan tugas sulit dengan cara sulit.&rdquo;</p>
       </div>
     </section>
   );

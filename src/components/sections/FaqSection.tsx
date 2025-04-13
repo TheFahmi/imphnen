@@ -224,7 +224,7 @@ const FaqSection: React.FC = () => {
 
       <div className="mt-6 p-4 bg-yellow-100 border border-dashed border-red-600 text-center">
         <p className="font-bold">Ingat:</p>
-        <p>"Programmer malas bukanlah programmer buruk. Programmer malas adalah programmer yang mencari cara paling efisien untuk menyelesaikan masalah dengan usaha minimal."</p>
+        <p>&ldquo;Programmer malas bukanlah programmer buruk. Programmer malas adalah programmer yang mencari cara paling efisien untuk menyelesaikan masalah dengan usaha minimal.&rdquo;</p>
         <p className="text-sm italic mt-2">- Filosofi IMPHNEN</p>
       </div>
     </section>

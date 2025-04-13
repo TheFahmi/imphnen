@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --config eslint.config.mjs",
     "serve": "node server.js",
     "postinstall": "mkdir -p data",
     "vercel-build": "next build",
@@ -20,6 +20,7 @@
     "react-scroll": "^1.9.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
     "@types/express": "^4.17.21",
     "@types/node": "^20",
     "@types/react": "^18",

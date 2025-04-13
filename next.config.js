@@ -6,6 +6,12 @@ const nextConfig = {
   images: {
     domains: ['localhost'],
   },
+  eslint: {
+    ignoreDuringBuilds: false,
+    // Use the flat config system
+    lintDuringBuild: true,
+    dirs: ['src'],
+  },
 };
 
 module.exports = nextConfig;
