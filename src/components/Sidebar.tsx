@@ -6,6 +6,7 @@ import VisitorCounter from './VisitorCounter';
 import VisitorStats from './VisitorStats';
 import OnlineUsers from './OnlineUsers';
 import DailyQuote from './DailyQuote';
+import BonziBuddy from './BonziBuddy';
 
 interface SidebarProps {
   position: 'left' | 'right';
@@ -37,6 +38,12 @@ const Sidebar: React.FC<SidebarProps> = ({ position }) => {
         <div className="text-center">
           <Image src="/images/under_construction.svg" alt="Under Construction" width={90} height={30} className="mx-auto" />
           <p><span className="blink text-red-600 font-bold">UNDER CONSTRUCTION</span></p>
+        </div>
+
+        <hr className="my-4 border-t border-blue-900" />
+
+        <div className="bg-navy p-4 rounded-lg border-2 border-silver border-outset">
+          <BonziBuddy />
         </div>
       </div>
     );

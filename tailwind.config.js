@@ -12,6 +12,7 @@ module.exports = {
         'vt323': ['var(--font-vt323)', 'VT323', 'monospace'],
         'silkscreen': ['var(--font-silkscreen)', 'Silkscreen', 'monospace'],
         'retro': ['var(--font-vt323)', 'VT323', 'monospace'],
+        'comic': ['var(--font-comic)', 'Comic Neue', 'Comic Sans MS', 'Comic Sans', 'cursive'],
       },
       colors: {
         navy: '#000080',
@@ -33,6 +34,9 @@ module.exports = {
         'rainbow': 'rainbow 5s linear infinite',
         'marquee': 'marquee 15s linear infinite',
         'bounce-slow': 'bounce 3s infinite',
+        'talk': 'talk 0.3s infinite',
+        'wave': 'wave 2s ease-in-out infinite',
+        'bonzi-bounce': 'bonzi-bounce 2s ease-in-out infinite',
       },
       keyframes: {
         blinker: {
@@ -45,6 +49,19 @@ module.exports = {
         marquee: {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(-100%)' },
+        },
+        talk: {
+          '0%, 100%': { transform: 'scaleY(1)' },
+          '50%': { transform: 'scaleY(0.8)' },
+        },
+        wave: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(-15deg)' },
+          '75%': { transform: 'rotate(15deg)' },
+        },
+        'bonzi-bounce': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
         },
       },
     },
