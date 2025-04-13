@@ -8,19 +8,21 @@ import LanguagesSection from '../components/sections/LanguagesSection';
 import GallerySection from '../components/sections/GallerySection';
 import FaqSection from '../components/sections/FaqSection';
 import TipsSection from '../components/sections/TipsSection';
+import SplashScreenWrapper from '../components/SplashScreenWrapper';
 
 export default function Home() {
   return (
-    <Layout>
-      <HomeSection />
-      <AboutSection />
-      <FeaturesSection />
-      <LearningSection />
-      <TestimonialsSection />
-      <LanguagesSection />
-      <GallerySection />
-      <TipsSection />
-      <FaqSection />
+    <SplashScreenWrapper alwaysShow={true}>
+      <Layout>
+        <HomeSection />
+        <AboutSection />
+        <FeaturesSection />
+        <LearningSection />
+        <TestimonialsSection />
+        <LanguagesSection />
+        <GallerySection />
+        <TipsSection />
+        <FaqSection />
 
       <div className="text-center my-8 p-4 border-2 border-dashed border-red-600 bg-yellow-200">
         <h3 className="text-xl font-bold mb-2">Bergabunglah dengan Komunitas Kami!</h3>
@@ -33,6 +35,7 @@ export default function Home() {
           KLIK DI SINI UNTUK BERGABUNG!
         </a>
       </div>
-    </Layout>
+      </Layout>
+    </SplashScreenWrapper>
   );
 }

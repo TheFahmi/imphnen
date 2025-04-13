@@ -51,8 +51,8 @@ const VisitorCounter: React.FC<VisitorCounterProps> = ({ className }) => {
 
   return (
     <div className={`visitor-counter ${className || ''}`}>
-      <p className="font-bold mb-1 text-sm sm:text-base">VISITOR #:</p>
-      <div className="bg-black text-green-400 font-mono font-bold p-1 sm:p-2 mx-auto w-4/5 text-center border-2 border-gray-400 border-inset text-sm sm:text-base">
+      <p className="font-silkscreen font-bold mb-1 text-base sm:text-lg">VISITOR #:</p>
+      <div className="bg-black text-green-400 font-vt323 font-bold p-1 sm:p-2 mx-auto w-4/5 text-center border-2 border-gray-400 border-inset text-lg sm:text-xl">
         {loading ? (
           <span className="blink">LOADING</span>
         ) : error ? (

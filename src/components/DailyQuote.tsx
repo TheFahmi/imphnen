@@ -31,11 +31,11 @@ const DailyQuote: React.FC<DailyQuoteProps> = ({
   return (
     <div className={`daily-quote ${className}`}>
       {showTitle && (
-        <h3 className="font-bold mb-2 text-sm sm:text-base">{titleText}</h3>
+        <h3 className="font-silkscreen font-bold mb-2 text-base sm:text-lg">{titleText}</h3>
       )}
       <div className="bg-gray-100 p-3 border border-gray-300 rounded">
-        <blockquote className="italic text-sm mb-2">&quot;{quote.text}&quot;</blockquote>
-        <div className="text-right text-xs text-gray-600">— {quote.author}</div>
+        <blockquote className="font-vt323 italic text-base sm:text-lg mb-2">&quot;{quote.text}&quot;</blockquote>
+        <div className="font-vt323 text-right text-sm text-gray-600">— {quote.author}</div>
       </div>
     </div>
   );

@@ -12,13 +12,13 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Desktop copyright */}
-      <p className="mb-2 hidden sm:block">© 1998 IMPHNEN.DEV - Ingin Menjadi Programmer Handal Namun Enggan Ngoding</p>
+      <p className="mb-2 hidden sm:block font-vt323 text-lg">© 1998 IMPHNEN.DEV - Ingin Menjadi Programmer Handal Namun Enggan Ngoding</p>
 
       {/* Mobile copyright */}
-      <p className="mb-2 block sm:hidden text-xs">© 1998 IMPHNEN.DEV<br />Ingin Menjadi Programmer Handal<br />Namun Enggan Ngoding</p>
+      <p className="mb-2 block sm:hidden text-base font-vt323">© 1998 IMPHNEN.DEV<br />Ingin Menjadi Programmer Handal<br />Namun Enggan Ngoding</p>
 
       {/* Desktop links */}
-      <p className="mb-4 hidden sm:block">
+      <p className="mb-4 hidden sm:block font-silkscreen text-lg">
         <a href="mailto:contact@imphnen.dev" className="text-yellow-300 hover:underline mx-2">EMAIL KAMI</a> |
         <a href="#" className="text-yellow-300 hover:underline mx-2">GRUP FACEBOOK</a> |
         <a href="#" className="text-yellow-300 hover:underline mx-2">DISCORD</a> |
@@ -39,20 +39,20 @@ const Footer: React.FC = () => {
 
       <div className="bg-yellow-200 p-2 sm:p-4 border-2 border-dashed border-red-600 my-4 text-black">
         {/* Desktop HTML comments */}
-        <p className="font-mono text-navy font-bold mb-2 hidden sm:block">
+        <p className="font-press-start text-navy font-bold mb-2 hidden sm:block text-xs">
           &lt;!-- Website ini dibuat dengan bahasa pemrograman HTML --&gt;<br />
           &lt;!-- Yang sebenarnya bukan bahasa pemrograman --&gt;<br />
           &lt;!-- Tapi tetap saja malas untuk mempelajarinya --&gt;
         </p>
 
         {/* Mobile HTML comments */}
-        <p className="font-mono text-navy font-bold mb-2 block sm:hidden text-xs">
+        <p className="font-press-start text-navy font-bold mb-2 block sm:hidden text-xs">
           &lt;!-- Website ini dibuat dengan HTML --&gt;<br />
           &lt;!-- Bukan bahasa pemrograman --&gt;<br />
           &lt;!-- Tapi tetap malas belajar --&gt;
         </p>
 
-        <p className="font-mono text-red-600 mb-2 text-xs sm:text-base">
+        <p className="font-vt323 text-red-600 mb-2 text-sm sm:text-lg">
           &lt;marquee&gt;Situs ini dibuat oleh programmer yang malas ngoding&lt;/marquee&gt;
         </p>
         <div className="bg-navy text-white p-1 overflow-hidden whitespace-nowrap">

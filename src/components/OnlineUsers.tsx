@@ -103,7 +103,7 @@ const OnlineUsers: React.FC<OnlineUsersProps> = ({ className }) => {
 
   return (
     <div className={`online-users ${className || ''}`}>
-      <h3 className="font-bold mb-2 text-center text-sm sm:text-base">ONLINE SEKARANG</h3>
+      <h3 className="font-silkscreen font-bold mb-2 text-center text-base sm:text-lg">ONLINE SEKARANG</h3>
 
       <div className="bg-navy p-2 rounded">
         <div className="flex flex-wrap justify-center gap-1 mb-2">
@@ -119,7 +119,7 @@ const OnlineUsers: React.FC<OnlineUsersProps> = ({ className }) => {
               <span className="absolute bottom-0 right-0 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full"></span>
 
               {/* Tooltip */}
-              <div className="tooltip">
+              <div className="tooltip font-vt323 text-sm">
                 {user.name}
                 <br />
                 <span className="text-gray-400">{getTimeAgo(user.lastActive)}</span>
@@ -128,7 +128,7 @@ const OnlineUsers: React.FC<OnlineUsersProps> = ({ className }) => {
           ))}
         </div>
 
-        <p className="text-center text-white text-xs">
+        <p className="text-center text-white text-sm font-vt323">
           {onlineUsers.length} programmer malas online
         </p>
       </div>

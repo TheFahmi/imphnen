@@ -14,9 +14,29 @@
 body {
   background-color: #000080;
   color: #000000;
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-family: 'VT323', monospace;
+  font-size: 16px; /* Adjusted base font size */
   background-image: url('/images/stars_bg.svg');
   cursor: pointer;
+}
+
+/* Retro font styles */
+.font-press-start {
+  font-family: 'Press Start 2P', monospace;
+  letter-spacing: -0.05em;
+  font-size: 0.9rem; /* Adjusted size for Press Start 2P */
+}
+
+.font-vt323 {
+  font-family: 'VT323', monospace;
+  letter-spacing: 0.02em;
+  font-size: 1.1rem; /* Adjusted size for VT323 */
+}
+
+.font-silkscreen {
+  font-family: 'Silkscreen', monospace;
+  letter-spacing: 0.01em;
+  font-size: 1rem; /* Adjusted size for Silkscreen */
 }
 
 @layer components {
@@ -29,6 +49,18 @@ body {
     50% {
       opacity: 0;
     }
+  }
+
+  /* Loading animations */
+  .loading-bar {
+    background: linear-gradient(90deg, #4a90e2, #63b3ed, #4a90e2);
+    background-size: 200% 100%;
+    animation: loading-bar-animation 2s linear infinite;
+  }
+
+  @keyframes loading-bar-animation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
   }
 
   /* Rainbow text effect */

@@ -27,7 +27,7 @@ const Navigation: React.FC = () => {
     <>
       {/* Mobile Menu Toggle */}
       <div
-        className="md:hidden bg-orange-500 text-navy text-center p-2 font-bold cursor-pointer border-2 border-silver border-outset"
+        className="md:hidden bg-orange-500 text-navy text-center p-2 font-silkscreen font-bold text-lg cursor-pointer border-2 border-silver border-outset"
         onClick={toggleMobileMenu}
       >
         {mobileMenuOpen ? 'CLOSE MENU ▲' : 'OPEN MENU ▼'}
@@ -51,7 +51,7 @@ const Navigation: React.FC = () => {
                       smooth={true}
                       offset={-50}
                       duration={500}
-                      className="text-navy no-underline font-bold hover:text-red-600 hover:underline block w-full cursor-pointer"
+                      className="text-navy no-underline font-vt323 font-bold text-lg sm:text-xl hover:text-red-600 hover:underline block w-full cursor-pointer"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.label}
@@ -77,7 +77,7 @@ const Navigation: React.FC = () => {
                   smooth={true}
                   offset={-50}
                   duration={500}
-                  className="text-navy no-underline font-bold hover:text-red-600 hover:underline block w-full cursor-pointer"
+                  className="text-navy no-underline font-vt323 font-bold text-lg sm:text-xl hover:text-red-600 hover:underline block w-full cursor-pointer"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}

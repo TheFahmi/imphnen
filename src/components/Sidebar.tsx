@@ -44,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ position }) => {
 
   return (
     <div className="bg-red-100 p-4 border border-blue-900">
-      <h2 className="bg-blue-900 text-white p-2 font-bold text-center mb-4 text-sm sm:text-base">KOMUNITAS</h2>
+      <h2 className="bg-blue-900 text-white p-2 font-silkscreen font-bold text-center mb-4 text-sm sm:text-base">KOMUNITAS</h2>
 
       <div className="mb-4">
         <OnlineUsers className="mb-4" />

@@ -8,7 +8,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'comic': ['var(--font-comic)', 'Comic Sans MS', 'Comic Sans', 'cursive'],
+        'press-start': ['var(--font-press-start)', 'Press Start 2P', 'monospace'],
+        'vt323': ['var(--font-vt323)', 'VT323', 'monospace'],
+        'silkscreen': ['var(--font-silkscreen)', 'Silkscreen', 'monospace'],
+        'retro': ['var(--font-vt323)', 'VT323', 'monospace'],
       },
       colors: {
         navy: '#000080',
@@ -29,6 +32,7 @@ module.exports = {
         'blink': 'blinker 1s linear infinite',
         'rainbow': 'rainbow 5s linear infinite',
         'marquee': 'marquee 15s linear infinite',
+        'bounce-slow': 'bounce 3s infinite',
       },
       keyframes: {
         blinker: {

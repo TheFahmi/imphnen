@@ -68,14 +68,14 @@ const VisitorStats: React.FC<VisitorStatsProps> = ({ className }) => {
 
   return (
     <div className={`visitor-stats ${className || ''}`}>
-      <h3 className="font-bold mb-2 text-sm sm:text-base">STATISTIK PENGUNJUNG</h3>
+      <h3 className="font-silkscreen font-bold mb-2 text-base sm:text-lg">STATISTIK PENGUNJUNG</h3>
 
       {loading ? (
         <div className="text-center p-2">
           <span className="blink">Loading...</span>
         </div>
       ) : (
-        <div className="text-xs sm:text-sm">
+        <div className="text-sm sm:text-base font-vt323">
           <div className="flex justify-between mb-1">
             <span>Total Pengunjung:</span>
             <span className="font-bold">{stats.totalVisitors.toLocaleString()}</span>

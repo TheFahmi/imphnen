@@ -24,10 +24,10 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      <h1 className="text-2xl sm:text-3xl font-bold rainbow-text mb-2">WELCOME TO IMPHNEN.DEV</h1>
+      <h1 className="text-2xl sm:text-3xl font-press-start font-bold rainbow-text mb-2">WELCOME TO IMPHNEN.DEV</h1>
 
-      <div className="bg-black text-green-400 p-2 font-bold overflow-hidden whitespace-nowrap">
-        <div className="marquee text-xs sm:text-base">
+      <div className="bg-black text-green-400 p-2 font-silkscreen font-bold text-lg sm:text-xl overflow-hidden whitespace-nowrap">
+        <div className="marquee text-base sm:text-lg">
           Thanks for visiting IMPHNEN website! Last updated: April 1998
         </div>
       </div>

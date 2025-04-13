@@ -37,7 +37,7 @@ const FooterVisitorCounter: React.FC = () => {
   }, []);
 
   return (
-    <p className="text-gray-300 text-xs sm:text-sm">
+    <p className="text-gray-300 text-sm sm:text-base font-vt323">
       Visitor counter: {loading ? (
         <span className="blink text-yellow-300">Loading...</span>
       ) : (
