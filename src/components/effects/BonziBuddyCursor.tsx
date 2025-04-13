@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 
 interface BonziBuddyMessage {
@@ -17,7 +17,7 @@ const BonziBuddyCursor: React.FC = () => {
   const [messages, setMessages] = useState<BonziBuddyMessage[]>([]);
   const [lastMessageTime, setLastMessageTime] = useState(0);
 
-  const bonziMessages = React.useMemo(() => [
+  const bonziMessages = useMemo(() => [
     "Halo! Saya BonziBuddy!",
     "Selamat datang di IMPHNEN!",
     "Jangan lupa untuk malas ngoding hari ini!",

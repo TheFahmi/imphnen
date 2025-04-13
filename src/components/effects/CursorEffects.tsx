@@ -33,7 +33,7 @@ const CursorEffects: React.FC = () => {
   ];
 
   useEffect(() => {
-    let movingTimeout: NodeJS.Timeout;
+    let movingTimeout: NodeJS.Timeout | null = null;
 
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
@@ -87,7 +87,7 @@ const CursorEffects: React.FC = () => {
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       clearInterval(trailInterval);
-      clearTimeout(movingTimeout);
+      if (movingTimeout) clearTimeout(movingTimeout);
     };
   }, [meteorColors]);
 
