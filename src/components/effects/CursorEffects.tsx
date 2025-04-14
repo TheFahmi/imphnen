@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 
 interface TrailPoint {
   id: number;
@@ -13,11 +13,11 @@ interface TrailPoint {
 
 const CursorEffects: React.FC = () => {
   const [trail, setTrail] = useState<TrailPoint[]>([]);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // Remove unused mousePosition state
   const colorIndexRef = useRef(0);
 
-  // Warna-warna untuk efek meteor (lebih banyak warna)
-  const meteorColors = [
+  // Colors for meteor effect (using useMemo to avoid dependency issues)
+  const meteorColors = useMemo(() => [
     '#FFD700', // Gold
     '#FFA500', // Orange
     '#FF8C00', // DarkOrange
@@ -30,18 +30,17 @@ const CursorEffects: React.FC = () => {
     '#8A2BE2', // BlueViolet
     '#9400D3', // DarkViolet
     '#32CD32', // LimeGreen
-  ];
+  ], []);
 
   useEffect(() => {
-    let movingTimeout: NodeJS.Timeout | null = null;
+    const movingTimeout: NodeJS.Timeout | null = null;
 
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
 
-      // Update posisi mouse
-      setMousePosition({ x: clientX, y: clientY });
+      // No need to update mouse position state anymore
 
-      // Rotasi warna untuk setiap titik baru
+      // Rotate colors for each new point
       colorIndexRef.current = (colorIndexRef.current + 1) % meteorColors.length;
       const currentColor = meteorColors[colorIndexRef.current];
 
