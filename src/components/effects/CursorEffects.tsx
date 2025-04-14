@@ -2,125 +2,298 @@
 
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 
-interface TrailPoint {
+interface SnowflakePoint {
   id: number;
   x: number;
   y: number;
   size: number;
   opacity: number;
   color: string;
+  speedY: number;
+  speedX: number;
+  rotation: number;
+  rotationSpeed: number;
+}
+
+interface BonziBuddyMessage {
+  id: number;
+  text: string;
+  x: number;
+  y: number;
+  opacity: number;
 }
 
 const CursorEffects: React.FC = () => {
-  const [trail, setTrail] = useState<TrailPoint[]>([]);
-  // Remove unused mousePosition state
+  const [snowflakes, setSnowflakes] = useState<SnowflakePoint[]>([]);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [messages, setMessages] = useState<BonziBuddyMessage[]>([]);
+  const [lastMessageTime, setLastMessageTime] = useState(0);
+  // We'll use this ref to track the last time the cursor moved
+  const lastMoveTimeRef = useRef(0);
   const colorIndexRef = useRef(0);
 
-  // Colors for meteor effect (using useMemo to avoid dependency issues)
-  const meteorColors = useMemo(() => [
-    '#FFD700', // Gold
-    '#FFA500', // Orange
-    '#FF8C00', // DarkOrange
-    '#FF69B4', // HotPink
-    '#FF1493', // DeepPink
-    '#00FFFF', // Cyan
-    '#00BFFF', // DeepSkyBlue
-    '#1E90FF', // DodgerBlue
-    '#9370DB', // MediumPurple
-    '#8A2BE2', // BlueViolet
-    '#9400D3', // DarkViolet
-    '#32CD32', // LimeGreen
+  // Colors for snowflake effect
+  const snowflakeColors = useMemo(() => [
+    '#FFFFFF', // White
+    '#E0FFFF', // Light Cyan
+    '#F0F8FF', // Alice Blue
+    '#F5F5F5', // White Smoke
+    '#FFFAFA', // Snow
+    '#B0E0E6', // Powder Blue
+    '#ADD8E6', // Light Blue
+    '#87CEEB', // Sky Blue
+    '#E6E6FA', // Lavender
+    '#FFD700', // Gold (for stars)
+  ], []);
+
+  // BonziBuddy messages
+  const bonziMessages = useMemo(() => [
+    "Halo! Saya BonziBuddy!",
+    "Selamat datang di IMPHNEN!",
+    "Jangan lupa untuk malas ngoding hari ini!",
+    "Kamu programmer terbaik!",
+    "Mau ngopi dulu?",
+    "Istirahat dulu, coding-nya nanti saja!",
+    "Scroll terus, coding-nya kapan?",
+    "Saya suka website ini!",
+    "Kamu sudah makan?",
+    "Jangan lupa minum air!",
+    "Ayo kita malas bersama!",
+    "Coding itu susah, mending tidur!",
+    "Saya selalu mengawasimu...",
+    "Klik di sini untuk virus gratis! Hehe bercanda...",
+    "Sudah cek Facebook hari ini?",
+    "Mau dengar lelucon? Deadline-mu besok!",
+    "Ayo main game saja!",
+    "Kamu terlihat lelah, istirahat saja!",
+    "Saya rindu Windows XP!",
+    "Saya bukan virus, sumpah!",
+    "Sudah commit kode hari ini?",
+    "Jangan lupa push ke repository!",
+    "Error lagi? Coba restart dulu!",
+    "Apa kabar? Masih semangat ngoding?",
+    "Saya kangen jadi asisten virtual!",
+    "Kode kamu bagus, tapi bisa lebih bagus lagi!",
+    "Mau saya bantu debug kode kamu?",
+    "Saya lebih baik dari Clippy!",
+    "Kamu tahu? Saya dulu terkenal lho!",
+    "Jangan lupa indent kode kamu!",
+    "Semicolon itu penting; jangan lupa!",
+    "Kamu sudah coba framework baru?",
+    "Saya suka warna ungu, bagaimana denganmu?",
+    "Kamu punya banyak tab browser yang terbuka!",
+    "Jangan lupa backup data kamu!",
+    "Kamu tahu cara keluar dari Vim?",
+    "Sudah coba pakai dark mode?",
+    "Kopi dingin tuh, mau saya panaskan?",
+    "Kamu tahu? Saya bisa bernyanyi!",
+    "Mau dengar rahasia? Saya sebenarnya AI!",
+    "Kamu sudah update Windows hari ini?",
+    "Jangan lupa matikan komputer sebelum tidur!",
+    "Kamu tahu kenapa saya ungu? Karena keren!",
+    "Saya bisa bantu kamu cari bug!",
+    "Kamu pernah dengar tentang Y2K?",
+    "Saya rindu era dial-up internet!",
+    "Kamu terlalu banyak scroll media sosial!",
+    "Mau saya ceritakan tentang sejarah komputer?",
+    "Kamu tahu? Saya punya banyak teman di internet!",
+    "Terima kasih sudah mengundang saya ke website kamu!"
   ], []);
 
   useEffect(() => {
-    const movingTimeout: NodeJS.Timeout | null = null;
+    // No need for a moving timeout anymore
 
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
 
-      // No need to update mouse position state anymore
+      // Update cursor position
+      setCursorPosition({ x: clientX, y: clientY });
 
-      // Rotate colors for each new point
-      colorIndexRef.current = (colorIndexRef.current + 1) % meteorColors.length;
-      const currentColor = meteorColors[colorIndexRef.current];
+      // Update last move time
+      lastMoveTimeRef.current = Date.now();
 
-      // Tambahkan titik baru ke ekor meteor
-      setTrail(prevTrail => {
-        // Buat titik baru
-        const newPoint: TrailPoint = {
-          id: Date.now(),
+      // Create new snowflakes when cursor moves
+      if (Math.random() > 0.25) { // 75% chance to create a snowflake on movement
+        // Rotate colors for each new snowflake
+        colorIndexRef.current = (colorIndexRef.current + 1) % snowflakeColors.length;
+        const currentColor = snowflakeColors[colorIndexRef.current];
+
+        // Create new snowflake
+        setSnowflakes(prevSnowflakes => {
+          const newSnowflake: SnowflakePoint = {
+            id: Date.now(),
+            x: clientX + (Math.random() * 60 - 30), // Random offset from cursor (increased spread)
+            y: clientY - 10, // Start slightly above cursor
+            size: 5 + Math.random() * 10, // Random size between 5-15
+            opacity: 0.8 + Math.random() * 0.2, // Random opacity between 0.8-1.0
+            color: currentColor,
+            speedY: 1 + Math.random() * 2, // Random falling speed
+            speedX: Math.random() * 2 - 1, // Random horizontal drift
+            rotation: Math.random() * 360, // Random initial rotation
+            rotationSpeed: Math.random() * 5 - 2.5, // Random rotation speed
+          };
+
+          // Keep only the most recent 60 snowflakes (doubled from original 30)
+          return [newSnowflake, ...prevSnowflakes].slice(0, 60);
+        });
+      }
+
+      // Randomly display BonziBuddy messages
+      const now = Date.now();
+      if (now - lastMessageTime > 5000 && Math.random() > 0.9) { // 10% chance every 5 seconds
+        const newMessage: BonziBuddyMessage = {
+          id: now,
+          text: bonziMessages[Math.floor(Math.random() * bonziMessages.length)],
           x: clientX,
-          y: clientY,
-          size: 6 + Math.random() * 4, // Ukuran acak antara 6-10
-          opacity: 1, // Opacity awal
-          color: currentColor, // Warna dari rotasi
+          y: clientY - 50,
+          opacity: 1
         };
 
-        // Tambahkan titik baru ke awal array dan batasi panjang ekor
-        const updatedTrail = [newPoint, ...prevTrail].slice(0, 15); // Ekor lebih pendek (15 titik)
-
-        return updatedTrail;
-      });
+        setMessages(prev => [...prev, newMessage]);
+        setLastMessageTime(now);
+      }
     };
 
-    // Update opacity dan ukuran titik ekor meteor
-    const updateTrail = () => {
-      setTrail(prevTrail =>
-        prevTrail.map((point, index) => ({
-          ...point,
-          // Kurangi opacity berdasarkan posisi dalam ekor
-          opacity: Math.max(0, 1 - (index / 25)),
-          // Kurangi ukuran berdasarkan posisi dalam ekor
-          size: Math.max(2, 10 - index * 0.2),
-        })).filter(point => point.opacity > 0.1)
+    // Update snowflakes position (falling animation)
+    const updateSnowflakes = () => {
+      setSnowflakes(prevSnowflakes =>
+        prevSnowflakes.map(snowflake => ({
+          ...snowflake,
+          // Move snowflake down
+          y: snowflake.y + snowflake.speedY,
+          // Add some horizontal drift
+          x: snowflake.x + snowflake.speedX,
+          // Rotate snowflake
+          rotation: snowflake.rotation + snowflake.rotationSpeed,
+          // Gradually reduce opacity as it falls
+          opacity: Math.max(0, snowflake.opacity - 0.005),
+        })).filter(snowflake =>
+          // Remove snowflakes that are no longer visible or have fallen off screen
+          snowflake.opacity > 0.1 &&
+          snowflake.y < window.innerHeight + 50
+        )
       );
     };
 
-    // Set interval untuk memperbarui ekor meteor
-    const trailInterval = setInterval(updateTrail, 20);
+    // Update BonziBuddy messages (fade out and float up)
+    const updateMessages = () => {
+      setMessages(prevMessages =>
+        prevMessages
+          .map(msg => ({
+            ...msg,
+            opacity: msg.opacity - 0.01,
+            y: msg.y - 0.5 // Move up slowly
+          }))
+          .filter(msg => msg.opacity > 0) // Remove messages that are no longer visible
+      );
+    };
 
-    // Tambahkan event listener
+    // Set intervals to update animations
+    const snowflakeInterval = setInterval(updateSnowflakes, 30);
+    const messageInterval = setInterval(updateMessages, 50);
+
+    // Add event listener
     document.addEventListener('mousemove', handleMouseMove);
 
     // Cleanup
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
-      clearInterval(trailInterval);
-      if (movingTimeout) clearTimeout(movingTimeout);
+      clearInterval(snowflakeInterval);
+      clearInterval(messageInterval);
     };
-  }, [meteorColors]);
+  }, [snowflakeColors, bonziMessages, lastMessageTime]);
 
   return (
     <>
-      {/* Tidak perlu garis ekor komet lagi karena kita menggunakan bintang-bintang */}
-
-      {/* Bintang-bintang meteor */}
-      {trail.map((point, index) => (
-        <div
-          key={point.id}
+      {/* Custom cursor (arrow) */}
+      <div
+        style={{
+          position: 'fixed',
+          left: `${cursorPosition.x}px`,
+          top: `${cursorPosition.y}px`,
+          width: '30px',
+          height: '30px',
+          pointerEvents: 'none',
+          zIndex: 10000,
+          transform: 'translate(-50%, -50%)',
+          opacity: 1,
+        }}
+      >
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="white"
+          strokeWidth="2"
           style={{
-            position: 'fixed',
-            left: `${point.x}px`,
-            top: `${point.y}px`,
-            width: `${point.size * 2.5}px`,
-            height: `${point.size * 2.5}px`,
-            pointerEvents: 'none',
-            zIndex: 9999,
-            opacity: point.opacity,
-            transform: `translate(-50%, -50%) rotate(${index * 20 + Math.random() * 10}deg)`,
+            filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.7))',
           }}
         >
+          <path d="M5,3 L19,12 L5,21 L5,3" />
+        </svg>
+      </div>
+
+      {/* Falling snowflakes/stars */}
+      {snowflakes.map((snowflake) => (
+        <div
+          key={snowflake.id}
+          style={{
+            position: 'fixed',
+            left: `${snowflake.x}px`,
+            top: `${snowflake.y}px`,
+            width: `${snowflake.size}px`,
+            height: `${snowflake.size}px`,
+            pointerEvents: 'none',
+            zIndex: 9999,
+            opacity: snowflake.opacity,
+            transform: `translate(-50%, -50%) rotate(${snowflake.rotation}deg)`,
+          }}
+        >
+          {/* Star shape for snowflakes */}
           <svg
-            viewBox="0 0 24 20"
+            viewBox="0 0 24 24"
             width="100%"
             height="100%"
-            fill={index === 0 ? 'white' : point.color}
+            fill={snowflake.color}
             style={{
-              filter: `drop-shadow(0 0 ${point.size/2}px ${index === 0 ? 'white' : point.color})`,
+              filter: `drop-shadow(0 0 2px ${snowflake.color})`,
             }}
           >
-            <path d="M12 0L15.5 7.5H24L18 12.5L20 20L12 15L4 20L6 12.5L0 7.5H8.5L12 0Z" />
+            <path d="M12,0 L15,8 L24,8 L17,13 L20,21 L12,16 L4,21 L7,13 L0,8 L9,8 Z" />
           </svg>
+        </div>
+      ))}
+
+      {/* BonziBuddy Messages */}
+      {messages.map(message => (
+        <div
+          key={message.id}
+          style={{
+            position: 'fixed',
+            left: `${message.x}px`,
+            top: `${message.y}px`,
+            opacity: message.opacity,
+            pointerEvents: 'none',
+            zIndex: 9996,
+            transform: 'translate(-50%, -100%)',
+            maxWidth: '200px',
+            backgroundColor: '#FFFFCC',
+            border: '2px solid #9966CC',
+            borderRadius: '10px',
+            padding: '8px',
+            boxShadow: '2px 2px 5px rgba(0,0,0,0.2)',
+          }}
+        >
+          <div
+            style={{
+              fontSize: '14px',
+              color: '#663399',
+              fontWeight: 'bold',
+            }}
+          >
+            {message.text}
+          </div>
         </div>
       ))}
     </>

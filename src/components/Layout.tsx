@@ -7,7 +7,7 @@ import Footer from './Footer';
 import Sidebar from './Sidebar';
 import ScrollToTopButton from './ScrollToTopButton';
 import CursorEffects from './effects/CursorEffects';
-import BonziBuddyCursor from './effects/BonziBuddyCursor';
+// BonziBuddyCursor removed as requested
 
 interface LayoutProps {
   children: ReactNode;
@@ -48,7 +48,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
       <ScrollToTopButton />
       <CursorEffects />
-      <BonziBuddyCursor />
     </div>
   );
 };
